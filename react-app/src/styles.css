@@ -1,0 +1,55 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #E1E1E1;
+}
+
+.App {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.instructions, .main-content, .about {
+    display: flex;
+    flex-direction: column;
+    width: 33vw;
+    height: 100vh;
+    padding: 50px;
+    overflow-wrap: break-word;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.blue-bg {
+    background-color: #C4D4E7;
+}
+
+.info {
+    height: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-item {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.about-section {
+    margin-bottom: 10px;
+}
+
+.hide-button {
+    align-self: center;
+    margin-top: auto;
+}
