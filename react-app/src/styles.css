@@ -4,37 +4,124 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: #E1E1E1;
-}
-
-.App {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.instructions, .main-content, .about {
+.flex-col {
     display: flex;
     flex-direction: column;
-    width: 33vw;
-    height: 100vh;
-    padding: 50px;
-    overflow-wrap: break-word;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
 }
 
 .center-text {
     text-align: center;
 }
 
+.ovfx-scrl {
+    overflow-x: scroll;
+}
+
 .blue-bg {
     background-color: #C4D4E7;
 }
 
-.info {
+.bottom-20px {
+    margin-bottom: 20px;
+}
+
+.block-1 {
+    width: 50%;
+    margin: 5px;
+}
+
+.block-2 {
+    width: auto;
+    margin: 5px;
+}
+
+.text-1 {
+    font-size: 24px;
+    font-weight: 400;
+    margin: 5px;
+}
+
+.text-2 {
+    font-size: 24px;
+    font-weight: 700;
+    width: 25%;
+}
+
+.text-3 {
+    font-size: 32px;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.text-4 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.btn-sm {
+    height: 35px;
+    width: 35px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    font-size: large;
+    font-weight: 700;
+    margin: 5px;
+}
+
+body {
+    background-color: #E1E1E1;
+    font-family: 'Inter', sans-serif;
+}
+
+h1 {
+    font-size: 48px;
+    width: 33vw;
+    align-self: center;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 400;
+}
+
+#time-left {
+    justify-content: center;
+    font-family: 'Oxygen Mono', monospace;
+}
+
+.App {
+    justify-content: space-around;
+    height: 100vh;
+}
+
+.instructions, .main-content, .about {
+    display: flex;
+    flex-direction: column;
+    width: 33vw;
     height: 100%;
+    padding: 5px;
+    overflow-wrap: break-word;
+}
+
+.info {
+    height: 82%;
     margin-top: 20px;
     padding: 20px;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-hidden {
+    height: 10%;
+    margin-top: 20px;
     text-align: justify;
     display: flex;
     flex-direction: column;
@@ -46,10 +133,113 @@ body {
 }
 
 .about-section {
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .hide-button {
     align-self: center;
     margin-top: auto;
+    background-color: white;
+    border: 2px solid black;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.show-button {
+    align-self: center;
+    margin: auto;
+    background-color: white;
+    border: 2px solid black;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.controls {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.controls-br {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    width: 100%;
+}
+
+.controls-se {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    width: 100%;
+}
+
+.controls-length {
+    justify-content: center;
+}
+
+.btn-ctr {
+    background-color: white;
+    border: 2px solid black;
+    font-size: 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-mobile-nav {
+    visibility: hidden;
+}
+
+@media screen and (max-width: 800px) {
+    .App {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .instructions, .main-content, .about {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .main-content {
+        order: 1;
+    }
+
+    .instructions {
+        order: 2;
+    }
+
+    .about {
+        order: 3;
+    }
+
+    h1 {
+        width: auto;
+    }
+
+    .btn-mobile-nav {
+        visibility: visible;
+        margin: 5px;
+        font-size: 20px;
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+        text-decoration: none;
+        text-align: center;
+        padding: 5px;
+    }
+
+    .hide-button {
+        visibility: hidden;
+    }
 }
