@@ -271,15 +271,9 @@ function App() {
           <div className='timer blue-bg flex-col center-text block-2'>
             <p id='timer-label' className='text-3'>{timerLabel}</p>
             <div id='time-left' className='flex-row text-4'>
-              <p>
-                {minutes.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})}
-              </p>
-              <p>
-                :
-              </p>
-              <p>
-                {seconds.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})}
-              </p>
+              {minutes.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})
+              + ':' +
+              seconds.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})}
             </div>
           </div>
           <div className='controls-state flex-row'>
