@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import './styles.css'
 
@@ -13,6 +13,8 @@ function App() {
   const [seconds, setSeconds] = useState(0)
   const [timerLabel, setTimerLabel] = useState('Session')
 
+  const audioRef = useRef(null)
+
   useEffect( () => 
     {
       function updateTimer() {
@@ -24,16 +26,16 @@ function App() {
         if(timerIsRunning) {
           if(seconds === 0) {
             if(minutes === 0) {
+              playAudio()
+              setSeconds(0)
               if(timerLabel === 'Session'){
                 setTimerLabel('Break')
                 setMinutes(breakLength)
-                setSeconds(0)
                 return
               }
               else if(timerLabel === 'Break'){
                 setTimerLabel('Session')
                 setMinutes(sessionLength)
-                setSeconds(0)
                 return
               }
             }
@@ -164,6 +166,8 @@ function App() {
   }
 
   function handleReset() {
+    audioRef.current.pause()
+    audioRef.current.currentTime = 0
     setBreakLength(5)
     setSessionLength(25)
     setMinutes(25)
@@ -205,6 +209,11 @@ function App() {
       setSessionStarted(true)
     }
     setTimerIsRunning(prev => !prev)
+  }
+
+  function playAudio() {
+    audioRef.current.play()
+    audioRef.current.currentTime = 0
   }
 
   return (
@@ -329,6 +338,13 @@ function App() {
           Back to top
         </a>
       </div>
+      <audio
+        id='beep'
+        src='https://s3.amazonaws.com/freecodecamp/drums/Chord_3.mp3'
+        preload='auto'
+        ref={audioRef}
+      >
+      </audio>
     </div>
   );
 }
